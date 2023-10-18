@@ -1,9 +1,9 @@
 import React from "react";
 import More from "../assets/icons/More";
 import logo from "../assets/img/wikipedia.jpg";
-import Search from "../assets/icons/Search";
 import Point from "../assets/icons/point";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
   return (
@@ -25,18 +25,7 @@ export default function Header() {
         </div>
         <div className="flex items-center cursor-pointer justify-between w-4/5">
           <div>
-            <form className="w-[450px] relative" action="">
-              <div className="relative">
-                <input
-                  type="search"
-                  className="w-full p-4 h-10 rounded-full border placeholder:text-sm"
-                  placeholder="Tìm kiếm trên Wikipedia"
-                />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-slate-200">
-                  <Search />
-                </button>
-              </div>
-            </form>
+            <SearchBar />
           </div>
           <div className="flex items-center">
             <div className="mx-5 hover:opacity-50">
