@@ -36,7 +36,9 @@ export default function Header() {
                 </div>
                 <div className='flex items-center'>
                   <div className='mx-5 hover:opacity-50'>
+                  <Link to = '/Signup'>
                     <p>Tạo tài khoản</p>
+                    </Link>
                   </div>
                   <div className='mr-5 hover:opacity-50'>
                     <Link to = '/Login'>
