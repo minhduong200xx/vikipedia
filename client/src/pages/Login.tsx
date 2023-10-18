@@ -7,6 +7,7 @@ const Login = () => {
   const [human, setHuman] = useState(false);
   const handleSubmit = (values: unknown) => {
     console.log(values);
+    //xử lý logic đăng nhập
   };
   const checkToken = (token: string | null) => {
     token ? setHuman(true) : setHuman(false);
@@ -53,7 +54,7 @@ const Login = () => {
           </Button>
           Hoặc{" "}
           <Link to={"/register"} className="font-bold">
-            Đăng ký!
+            Đăng ký
           </Link>
         </Form.Item>
       </Form>
