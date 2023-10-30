@@ -3,13 +3,13 @@ import ArrDown from "../assets/icons/ArrDown";
 import Card from "./Card";
 import { useState } from "react";
 import axios from "axios";
-
+import { cardDesc } from "../types/types";
 function Home() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<cardDesc>();
   const config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: "https://en.wikipedia.org/api/rest_v1/feed/featured/2022/10/20",
+    url: "https://en.wikipedia.org/api/rest_v1/feed/featured/2023/10/18",
     headers: {},
   };
   useEffect(() => {
@@ -17,7 +17,7 @@ function Home() {
       axios
         .request(config)
         .then((response) => {
-          setData(response.data.tfa.extract_html);
+          setData(response.data.tfa);
         })
         .catch((error) => {
           console.log(error);
@@ -172,10 +172,7 @@ function Home() {
           </div>
         </div>
         <div className=" mt-5 w-full flex justify-between">
-          <div className="flex flex-col">{data}</div>
-          <div>
-            <Card />
-          </div>
+          <div>{data && <Card title="Bài viết mới" desc={data}></Card>}</div>
         </div>
       </div>
     </div>

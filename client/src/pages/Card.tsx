@@ -1,7 +1,9 @@
 import React from "react";
 import img1 from "../assets/img/px1.jpg";
 import Star from "../assets/icons/Star";
-function Card() {
+import { cardDesc } from "../types/types";
+import parse from "html-react-parser";
+function Card({ title, desc }: { title: string; desc: cardDesc }) {
   return (
     <div>
       <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl mb-5 ">
@@ -15,15 +17,12 @@ function Card() {
             <div className="bg-amber-400 p-2">
               <Star />
             </div>
-            <p className="bg-amber-100 p-2 w-full cursor-pointer">
-              Bài viết chọn lọc
-            </p>
+            <p className="bg-amber-100 p-2 w-full cursor-pointer">{title}</p>
           </div>
           <div className="border-b-2">
+            <h2>{parse(desc.displaytitle)}</h2>
             <p className=" font-normal text-gray-700 dark:text-gray-400 pb-2">
-              SMS Thüringen là một thiết giáp hạm dreadnought của Hải quân Đế
-              quốc Đức trong Chiến tranh Thế giới thứ nhất, là chiếc thứ ba
-              trong lớp thiết giáp hạm Helgoland bao gồm bốn chiếc.
+              {parse(desc.extract_html)}
             </p>
             <button className="bg-amber-300 mb-2 px-4 py-1 text-white rounded-lg">
               Đọc tiếp
@@ -34,7 +33,7 @@ function Card() {
               Lưu trữ
             </a>
             <a href="" className="px-2 hover:text-sky-600 font-medium text-sm">
-              Thêm bài viết chọn lọc
+              Thêm
             </a>
             <a href="" className="px-2 hover:text-sky-600 font-medium text-sm">
               Ứng cử viên
